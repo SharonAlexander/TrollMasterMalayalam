@@ -470,7 +470,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder alertdialog = new AlertDialog.Builder(
                 new ContextThemeWrapper(MainActivity.this, R.style.AlertDialogTheme));
         ImageView imageView = new ImageView(MainActivity.this);
-        imageView.setScaleType(ImageView.ScaleType.CENTER);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         int x = (int) (Math.random() * 3);
         if (x == 0) {
             imageView.setImageResource(R.drawable.exit_troll_pic);
