@@ -21,6 +21,7 @@ public class ShareHelper {
 
 
     public void shareImageOnWhatsapp(Activity activity, Bitmap bitmap, String textBody, String id) {
+        checkFolders();
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.setPackage(Constants.whatsapp_package);
@@ -46,6 +47,7 @@ public class ShareHelper {
     }
 
     public void shareMain(Activity activity, Bitmap bitmap, String textBody, String id, String link, String type) {
+        checkFolders();
         Parcelable fileUri = null;
         String filePath = Constants.folder_main_path + Constants.folder_name + id + ".png";
         if (saveBitmap(bitmap, filePath)) {
@@ -66,6 +68,7 @@ public class ShareHelper {
     }
 
     public void shareAppDetails(Activity activity) {
+        checkFolders();
         saveBitmapToFile(activity);
         Parcelable uri = Uri.parse(Constants.folder_main_path + Constants.folder_name + Constants.hidden_folder_for_app_share + "app_share_image.jpeg");
         Intent intent = new Intent();
@@ -128,11 +131,11 @@ public class ShareHelper {
     public void checkFolders() {
         File folder1 = new File(Constants.folder_main_path + Constants.folder_name);
         if (!folder1.exists()) {
-            folder1.mkdir();
+            folder1.mkdirs();
         }
         File folder2 = new File(Constants.folder_main_path + Constants.folder_name + Constants.hidden_folder_for_app_share);
         if (!folder2.exists()) {
-            folder2.mkdir();
+            folder2.mkdirs();
         }
     }
 }
