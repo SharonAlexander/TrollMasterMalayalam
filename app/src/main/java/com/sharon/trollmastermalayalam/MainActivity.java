@@ -1,6 +1,8 @@
 package com.sharon.trollmastermalayalam;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -30,6 +32,9 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.sharon.trollmastermalayalam.helper.Constants;
 import com.sharon.trollmastermalayalam.helper.ShareHelper;
+
+import pub.devrel.easypermissions.AfterPermissionGranted;
+import pub.devrel.easypermissions.EasyPermissions;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -419,7 +424,7 @@ public class MainActivity extends AppCompatActivity {
                         showAlertAboutUs();
                         return true;
                     case 102://share the app
-                        new ShareHelper().shareAppDetails(MainActivity.this);
+                        shareApp(MainActivity.this);
                         return true;
                     case 103: //add remove pages
                         if (!isPremium && mInterstitialAdforAddRemove.isLoaded()) {
@@ -522,5 +527,16 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .setIcon(R.mipmap.ic_launcher)
                 .show();
+    }
+
+    @AfterPermissionGranted(005)
+    public void shareApp(Context context) {
+        String[] perms = {android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if (EasyPermissions.hasPermissions(context, perms)) {
+            new ShareHelper().shareAppDetails((Activity) context);
+        } else {
+            EasyPermissions.requestPermissions((Activity) context, context.getString(R.string.storage_permission_prompt_message),
+                    005, perms);
+        }
     }
 }

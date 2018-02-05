@@ -26,10 +26,10 @@ import com.google.gson.annotations.SerializedName;
 import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.items.AbstractItem;
 import com.mikepenz.fastadapter.listeners.ClickEventHook;
-import com.sharon.trollmastermalayalam.helper.DownloadHelper;
 import com.sharon.trollmastermalayalam.FullScreenImage;
 import com.sharon.trollmastermalayalam.PlayVideoJZ;
 import com.sharon.trollmastermalayalam.R;
+import com.sharon.trollmastermalayalam.helper.DownloadHelper;
 import com.sharon.trollmastermalayalam.helper.ShareHelper;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -114,6 +114,18 @@ public class Datum extends AbstractItem<Datum, Datum.ViewHolder> {
         } else {
             EasyPermissions.requestPermissions((Activity) context, context.getString(R.string.storage_permission_prompt_message),
                     002, perms);
+        }
+    }
+
+    @AfterPermissionGranted(003)
+    public static void shareMethod(Context context, Datum item) {
+        String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if (EasyPermissions.hasPermissions(context, perms)) {
+
+            new ShareHelper().shareMain((Activity) context, item.getBitmap(), item.getMessage(), item.getId(), item.getPermalinkUrl(), item.getItemType());
+        } else {
+            EasyPermissions.requestPermissions((Activity) context, context.getString(R.string.storage_permission_prompt_message),
+                    003, perms);
         }
     }
 
@@ -254,7 +266,7 @@ public class Datum extends AbstractItem<Datum, Datum.ViewHolder> {
                     .into(holder.pic, new Callback() {
                         @Override
                         public void onSuccess() {
-                            setBitmap(((BitmapDrawable)holder.pic.getDrawable()).getBitmap());
+                            setBitmap(((BitmapDrawable) holder.pic.getDrawable()).getBitmap());
                         }
 
                         @Override
@@ -262,7 +274,7 @@ public class Datum extends AbstractItem<Datum, Datum.ViewHolder> {
 
                         }
                     })
-                    ;
+            ;
         } else {
             holder.pic.setVisibility(View.GONE);
         }
@@ -400,7 +412,8 @@ public class Datum extends AbstractItem<Datum, Datum.ViewHolder> {
         public void onClick(View v, int position, FastAdapter<Datum> fastAdapter, Datum item) {
             v.setHapticFeedbackEnabled(true);
             shakeItBaby(v.getContext());
-            new ShareHelper().shareMain((Activity) v.getContext(), item.getBitmap(), item.getMessage(), item.getId(), item.getPermalinkUrl(), item.getItemType());
+//            new ShareHelper().shareMain((Activity) v.getContext(), item.getBitmap(), item.getMessage(), item.getId(), item.getPermalinkUrl(), item.getItemType());
+            shareMethod(v.getContext(), item);
         }
     }
 
