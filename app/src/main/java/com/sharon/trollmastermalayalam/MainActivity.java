@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         if (preferences.isFirstTimeLaunch()) {
             setDefaultDrawerItemChecks();
         }
+        checkingFolders(MainActivity.this);
         completeNavigationDrawer();
     }
 
@@ -537,6 +538,17 @@ public class MainActivity extends AppCompatActivity {
         } else {
             EasyPermissions.requestPermissions((Activity) context, context.getString(R.string.storage_permission_prompt_message),
                     005, perms);
+        }
+    }
+
+    @AfterPermissionGranted(006)
+    public void checkingFolders(Context context) {
+        String[] perms = {android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if (EasyPermissions.hasPermissions(context, perms)) {
+            new ShareHelper().checkFolders();
+        } else {
+            EasyPermissions.requestPermissions((Activity) context, context.getString(R.string.storage_permission_prompt_message),
+                    006, perms);
         }
     }
 }

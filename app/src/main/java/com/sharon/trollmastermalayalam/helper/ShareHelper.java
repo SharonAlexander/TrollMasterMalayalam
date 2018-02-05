@@ -124,4 +124,15 @@ public class ShareHelper {
         }
         return false;
     }
+
+    public void checkFolders() {
+        File folder1 = new File(Constants.folder_main_path + Constants.folder_name);
+        if (!folder1.exists()) {
+            folder1.mkdir();
+        }
+        File folder2 = new File(Constants.folder_main_path + Constants.folder_name + Constants.hidden_folder_for_app_share);
+        if (!folder2.exists()) {
+            folder2.mkdir();
+        }
+    }
 }
