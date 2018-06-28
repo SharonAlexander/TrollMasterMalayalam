@@ -103,12 +103,8 @@ public class Datum extends AbstractItem<Datum, Datum.ViewHolder> {
             } else if ("photo".equals(item.getItemType())) {
                 url = item.getFullPicture();
             } else if ("video".equals(item.getItemType())) {
-                if (item.getSource().contains("https://www.youtube.com/")) {
-                    Toast.makeText(context, "Cannot download youtube videos", Toast.LENGTH_SHORT).show();
-                    return;
-                } else {
-                    url = item.getSource();
-                }
+                Toast.makeText(context, "Cannot download videos", Toast.LENGTH_SHORT).show();
+                return;
             }
             new DownloadHelper((Activity) context, url, item.getId(), item.getItemType()).startDownload();
         } else {
@@ -282,7 +278,7 @@ public class Datum extends AbstractItem<Datum, Datum.ViewHolder> {
             holder.post_url.setText(getName() != null ? getName() : getLink());
             holder.post_url.setVisibility(View.VISIBLE);
         }
-        if ("video".equals(getItemType()) && getSource() != null) {
+        if ("video".equals(getItemType()) && getLink() != null) {
             holder.play_icon.setVisibility(View.VISIBLE);
         } else {
             holder.play_icon.setVisibility(View.GONE);
@@ -295,11 +291,7 @@ public class Datum extends AbstractItem<Datum, Datum.ViewHolder> {
             @Override
             public void onClick(View v) {
                 if (getItemType().equals("video")) {
-                    if (getSource().contains("https://www.youtube.com/")) {
-                        onLinkClicked(ctx);
-                    } else {
-                        onVideoPlayRequest(ctx);
-                    }
+                    onLinkClicked(ctx);
                 } else if (getItemType().equals("photo")) {
                     onPhotoFullScreenRequest(ctx);
                 } else if (getItemType().equals("link")) {
@@ -316,11 +308,7 @@ public class Datum extends AbstractItem<Datum, Datum.ViewHolder> {
         holder.play_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (getSource().contains("https://www.youtube.com/")) {
-                    onLinkClicked(ctx);
-                } else {
-                    onVideoPlayRequest(ctx);
-                }
+                onLinkClicked(ctx);
             }
         });
     }
