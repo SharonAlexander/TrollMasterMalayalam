@@ -1,12 +1,9 @@
 package com.sharon.trollmastermalayalam;
 
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -14,9 +11,7 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
-import android.view.Window;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.support.v7.app.AppCompatDelegate;
 import android.widget.Toast;
 
 import com.sharon.trollmastermalayalam.helper.Constants;
@@ -55,7 +50,7 @@ public class Settings extends PreferenceFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.settings_preferences);
-
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         settingspreferences = new Preferences(getActivity());
 
         getActivity().setTitle("Settings");
@@ -64,16 +59,16 @@ public class Settings extends PreferenceFragment {
         measureHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
 
         final CheckBoxPreference captioninclude = (CheckBoxPreference) getPreferenceManager().findPreference("captioninclude");
-        captioninclude.setSummary(settingspreferences.getCheckPref("captioninclude") ? getActivity().getString(R.string.captionsummarychecked)
-                : getActivity().getString(R.string.captionsummaryunchecked));
+        captioninclude.setSummary(settingspreferences.getCheckPref("captioninclude") ? getActivity().getString(R.string.captionsummaryunchecked)
+                : getActivity().getString(R.string.captionsummarychecked));
         captioninclude.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             public boolean onPreferenceClick(Preference preference) {
                 if (captioninclude.isChecked()) {
                     settingspreferences.putCheckPref("captioninclude", true);
-                    captioninclude.setSummary(getActivity().getString(R.string.captionsummarychecked));
+                    captioninclude.setSummary(getActivity().getString(R.string.captionsummaryunchecked));
                 } else {
                     settingspreferences.putCheckPref("captioninclude", false);
-                    captioninclude.setSummary(getActivity().getString(R.string.captionsummaryunchecked));
+                    captioninclude.setSummary(getActivity().getString(R.string.captionsummarychecked));
                 }
                 return false;
             }

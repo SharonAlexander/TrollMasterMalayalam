@@ -50,6 +50,8 @@ public class Constants {
     public static String id_trollktu = "/648035068665520/posts";
     public static String id_pravasitrolls = "/398190703968748/posts";
     public static String id_onlinetrollmedia = "/922507547812613/posts";
+    public static String id_trollsangh = "/1563226057247163/posts";
+    public static String id_trollcompany = "/320297855085161/posts";
 
     //    Feed
     public static String feed_limit = "25";

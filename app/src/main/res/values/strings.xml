@@ -68,6 +68,8 @@
     <string name="pagename_troll_kerala">Troll Kerala</string>
     <string name="pagename_malayalam_pling">Malayalam Pling</string>
     <string name="pagename_online_troll_media_otm">Online Troll Media - OTM</string>
+    <string name="pagename_trollsangh">Troll Sangh (സംഘി ഫലിതങ്ങൾ)</string>
+    <string name="pagename_trollcompany">Troll Company - TC</string>
 
     <!--Settings-->
     <string name="aboutus">About Us</string>
@@ -75,7 +77,7 @@
     <string name="preference_rateapp_dialogTitle">Rate Troll Master!</string>
     <string name="purchase_error">Error</string>
     <string name="purchase_already_owned">Error in purchase</string>
-    <string name="captioninclude">Include caption in shared message</string>
+    <string name="captioninclude">Remove caption in shared message</string>
     <string name="captionsummarychecked">Troll text is added to shared message</string>
     <string name="captionsummaryunchecked">Troll text is not added to shared message</string>
     <string name="preference_addRemove_dialogTitle">Add/Remove Pages</string>

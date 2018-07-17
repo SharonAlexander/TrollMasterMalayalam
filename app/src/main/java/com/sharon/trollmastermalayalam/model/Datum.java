@@ -27,7 +27,6 @@ import com.mikepenz.fastadapter.FastAdapter;
 import com.mikepenz.fastadapter.items.AbstractItem;
 import com.mikepenz.fastadapter.listeners.ClickEventHook;
 import com.sharon.trollmastermalayalam.FullScreenImage;
-import com.sharon.trollmastermalayalam.PlayVideoJZ;
 import com.sharon.trollmastermalayalam.R;
 import com.sharon.trollmastermalayalam.helper.DownloadHelper;
 import com.sharon.trollmastermalayalam.helper.ShareHelper;
@@ -55,9 +54,6 @@ public class Datum extends AbstractItem<Datum, Datum.ViewHolder> {
     @SerializedName("from")
     @Expose
     private From from;
-    @SerializedName("source")
-    @Expose
-    private String source;
     @SerializedName("picture")
     @Expose
     private String picture;
@@ -118,7 +114,7 @@ public class Datum extends AbstractItem<Datum, Datum.ViewHolder> {
         String[] perms = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
         if (EasyPermissions.hasPermissions(context, perms)) {
 
-            new ShareHelper().shareMain((Activity) context, item.getBitmap(), item.getMessage(), item.getId(), item.getPermalinkUrl(), item.getItemType());
+            new ShareHelper().shareMain(context, item.getBitmap(), item.getMessage(), item.getId(), item.getPermalinkUrl(), item.getItemType());
         } else {
             EasyPermissions.requestPermissions((Activity) context, context.getString(R.string.storage_permission_prompt_message),
                     003, perms);
@@ -196,14 +192,6 @@ public class Datum extends AbstractItem<Datum, Datum.ViewHolder> {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
     }
 
     public String getPicture() {
@@ -324,12 +312,12 @@ public class Datum extends AbstractItem<Datum, Datum.ViewHolder> {
 //        holder.play_icon.setImageBitmap(null);
     }
 
-    public void onVideoPlayRequest(Context ctx) {
-        Intent intent = new Intent(ctx, PlayVideoJZ.class);
-        intent.putExtra("videourl", getSource());
-        intent.putExtra("id", getId());
-        ctx.startActivity(intent);
-    }
+//    public void onVideoPlayRequest(Context ctx) {
+//        Intent intent = new Intent(ctx, PlayVideoJZ.class);
+//        intent.putExtra("videourl", getSource());
+//        intent.putExtra("id", getId());
+//        ctx.startActivity(intent);
+//    }
 
     public void onPhotoFullScreenRequest(Context ctx) {
         String picurl = getFullPicture();

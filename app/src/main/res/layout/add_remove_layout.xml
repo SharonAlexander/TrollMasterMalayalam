@@ -192,6 +192,20 @@
             android:text="@string/pagename_online_troll_media_otm"
             android:textSize="15sp" />
 
+        <CheckBox
+            android:id="@+id/trollSangh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pagename_trollsangh"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/trollCompany"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pagename_trollcompany"
+            android:textSize="15sp" />
+
 
     </LinearLayout>
 </ScrollView>
