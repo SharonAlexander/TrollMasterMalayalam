@@ -34,11 +34,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.sharon.trollmastermalayalam.PlayVideoJZ"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.Design.NoActionBar" />
-        <activity
             android:name="com.sharon.trollmastermalayalam.FullScreenImage"
             android:configChanges="orientation|screenSize"
             android:label="FullSreenImage"

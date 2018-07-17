@@ -309,15 +309,7 @@ public class Datum extends AbstractItem<Datum, Datum.ViewHolder> {
         holder.post_url.setText(null);
         holder.pic.setImageBitmap(null);
         holder.page_pic.setImageBitmap(null);
-//        holder.play_icon.setImageBitmap(null);
     }
-
-//    public void onVideoPlayRequest(Context ctx) {
-//        Intent intent = new Intent(ctx, PlayVideoJZ.class);
-//        intent.putExtra("videourl", getSource());
-//        intent.putExtra("id", getId());
-//        ctx.startActivity(intent);
-//    }
 
     public void onPhotoFullScreenRequest(Context ctx) {
         String picurl = getFullPicture();
