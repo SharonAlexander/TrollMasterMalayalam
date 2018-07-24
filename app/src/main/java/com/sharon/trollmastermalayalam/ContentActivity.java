@@ -101,6 +101,8 @@ public class ContentActivity extends Fragment {
                 new GraphRequest.Callback() {
                     @Override
                     public void onCompleted(GraphResponse response) {
+                        Log.e("onCompleted: ", response.getRawResponse());
+                        Log.e("onCompleted: ", response.getError() != null ? response.getError().getErrorMessage() : "");
                         fr = new GsonBuilder().create().fromJson(response.getRawResponse(), FirstResponse.class);
                         fastAdapter.clear();
                         fastAdapter.add(fr.getData());
@@ -125,6 +127,8 @@ public class ContentActivity extends Fragment {
                 new GraphRequest.Callback() {
                     @Override
                     public void onCompleted(GraphResponse response) {
+                        Log.e("onCompleted: ", response.getRawResponse());
+                        Log.e("onCompleted: ", response.getError() != null ? response.getError().getErrorMessage() : "hjjhjh");
                         f = new GsonBuilder().create().fromJson(response.getRawResponse(), FirstResponse.class);
                         fastAdapter.add(f.getData());
                         for (int i = 0; i < f.getData().size(); i++) {
