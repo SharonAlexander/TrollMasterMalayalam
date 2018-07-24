@@ -83,8 +83,9 @@
     <string name="preference_addRemove_dialogTitle">Add/Remove Pages</string>
 
     <string name="exit_toast">മുതലാളീ..</string>
-    <string name="settings_purchased_info">മുതലാളി എന്നെ ഒന്ന് വാങ്ങിച്ചതാ .. മറന്നോ :)</string>
+    <string name="settings_purchased_info">മുതലാളീ .. താങ്ക്യൂ ഉണ്ട് താങ്ക്യൂ. വീണ്ടും വീണ്ടും വാങ്ങാനുള്ള  മനസ്സ്.. </string>
     <string name="settings_purchase_cancel">മുതലാളീ ..</string>
     <string name="settings_purchase_success">നന്ദിയുണ്ട് മുതലാളീ .. നന്ദിയുണ്ട് .</string>
+    <string name="downloadhelper_success">ഇതല്ലാ ഇതിൻറെ അപ്പുറം ഡൌൺലോഡ് ചെയ്തവനാണീ ട്രോൾ മാസ്റ്റർ </string>
 
 </resources>

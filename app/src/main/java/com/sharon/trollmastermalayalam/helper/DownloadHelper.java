@@ -10,7 +10,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.sharon.trollmastermalayalam.R;
@@ -55,7 +54,7 @@ public class DownloadHelper {
                     @Override
                     public void onDownloadComplete(DownloadRequest downloadRequest) {
                         endNotification();
-                        Toast.makeText(activity, "ഡൌൺലോഡ് ചെയ്തു കഴിഞ്ഞു ചേട്ടായി :)", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity, R.string.downloadhelper_success, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
