@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/adViewBannerMain"
-        android:background="@color/colorPrimary"
+        android:background="@color/white"
         android:scrollbars="vertical"
         ads:layout_constraintTop_toBottomOf="@id/adViewBannerMain" />
 

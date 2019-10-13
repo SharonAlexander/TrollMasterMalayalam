@@ -14,7 +14,8 @@ public class AddRemovePagesActivity extends AppCompatActivity implements Compoun
     CheckBox icuCheck, trollMCheck, trollRCheck, mntCheck, dankCheck, psctrollsCheck, kidilanCheck, sctCheck,
             trollcricketCheck, trollfootballCheck, trollmcinemaCheck, mtmCheck, sheruCheck, cinemamixerCheck,
             cybertrollersCheck, thengakolaCheck, trollmollywoodCheck, trollclashersCheck, outspokenCheck,
-            btechtrollsCheck, mplingCheck, trollkeralaCheck, trollreligionCheck, trollktuCheck, pravasitrollsCheck, onlinetmCheck;
+            btechtrollsCheck, mplingCheck, trollkeralaCheck, trollreligionCheck, trollktuCheck, pravasitrollsCheck,
+            onlinetmCheck, trollSangh, trollCompany;
     Preferences preferences;
 
     @Override
@@ -62,6 +63,8 @@ public class AddRemovePagesActivity extends AppCompatActivity implements Compoun
         trollktuCheck = (CheckBox) findViewById(R.id.trollktuCheck);
         pravasitrollsCheck = (CheckBox) findViewById(R.id.pravasitrollsCheck);
         onlinetmCheck = (CheckBox) findViewById(R.id.onlinetmCheck);
+        trollSangh = (CheckBox) findViewById(R.id.trollSangh);
+        trollCompany = (CheckBox) findViewById(R.id.trollCompany);
     }
 
     private void setChecks() {
@@ -91,6 +94,8 @@ public class AddRemovePagesActivity extends AppCompatActivity implements Compoun
         trollktuCheck.setChecked(preferences.getCheckPref("trollktu"));
         pravasitrollsCheck.setChecked(preferences.getCheckPref("pravasitrolls"));
         onlinetmCheck.setChecked(preferences.getCheckPref("onlinetm"));
+        trollSangh.setChecked(preferences.getCheckPref("trollsangh"));
+        trollCompany.setChecked(preferences.getCheckPref("trollcompany"));
     }
 
     private void setCheckListeners() {
@@ -120,6 +125,8 @@ public class AddRemovePagesActivity extends AppCompatActivity implements Compoun
         trollktuCheck.setOnCheckedChangeListener(this);
         pravasitrollsCheck.setOnCheckedChangeListener(this);
         onlinetmCheck.setOnCheckedChangeListener(this);
+        trollSangh.setOnCheckedChangeListener(this);
+        trollCompany.setOnCheckedChangeListener(this);
     }
 
     @Override
@@ -409,6 +416,28 @@ public class AddRemovePagesActivity extends AppCompatActivity implements Compoun
                     MainActivity.result.removeItem(26);
                     mplingCheck.setChecked(false);
                     preferences.putCheckPref("mpling", false);
+                }
+                break;
+            case R.id.trollSangh:
+                if (compoundButton.isChecked()) {
+                    MainActivity.result.addItemAtPosition(MainActivity.item_trollsangh, 5);
+                    trollSangh.setChecked(true);
+                    preferences.putCheckPref("trollsangh", true);
+                } else {
+                    MainActivity.result.removeItem(27);
+                    trollSangh.setChecked(false);
+                    preferences.putCheckPref("trollsangh", false);
+                }
+                break;
+            case R.id.trollCompany:
+                if (compoundButton.isChecked()) {
+                    MainActivity.result.addItemAtPosition(MainActivity.item_trollcompany, 5);
+                    trollCompany.setChecked(true);
+                    preferences.putCheckPref("trollcompany", true);
+                } else {
+                    MainActivity.result.removeItem(28);
+                    trollCompany.setChecked(false);
+                    preferences.putCheckPref("trollcompany", false);
                 }
                 break;
         }

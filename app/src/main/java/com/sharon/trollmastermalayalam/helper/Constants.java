@@ -4,6 +4,14 @@ import android.os.Environment;
 
 public class Constants {
 
+    // WHOEVER IS COPYING MY APP PLEASE CREATE AND USE YOUR OWN API LICENCE, FACEBOOK APP ID AND
+    // APP TOKEN. PLEASE TAKE CARE TO USE YOUR OWN ADMOB AD IDS SO YOU'LL GET YOUR MONEY.
+    //
+    // IT'S OK TO COPY THE CODE. BUT TRY YOURSELF SOME MODIFICATIONS AND CHANGES AND BE BETTER IN CODING
+    // ITS HIGHLY APPRECIATED TO DROP A MAIL BEFORE YOU COPY MY CODE.
+    // THANKS - SHARON ALEXANDER
+
+
     //apilicense
     public static String apilicence = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArie0pEfCFNWlqZ5x0vLLD2W0rQ/nFg3AGlAKh0U4U9GNwirUyxYluqcn1131aLUd2ff1IQ+eILzm/TKvX2KDsXUSgU0Jcl+ar/oSLlXy8RvevK1JmN2CPgotGCoLiTiRSw2SbprvQ+sUt6Pk0DJy4YWrm1SFAqYJuGeCIkRlaihZlN6nIgtdEcmw4XnRGuGtqkZm9CV6iRrzaeh1qk4kEhPbFlldpk+jBZJ3C/vlWvtfEqf+Fijb1Z5v+IoYNBxykzkpbMkBkuWWDw+hdZyp/cRyPhtjIL/g5zNTw1fgtPYR6n5iNmUpJFRREUSvXXQf+7i0EX2tz6IwNk9EX/xqdwIDAQAB";
 
@@ -50,6 +58,8 @@ public class Constants {
     public static String id_trollktu = "/648035068665520/posts";
     public static String id_pravasitrolls = "/398190703968748/posts";
     public static String id_onlinetrollmedia = "/922507547812613/posts";
+    public static String id_trollsangh = "/1563226057247163/posts";
+    public static String id_trollcompany = "/320297855085161/posts";
 
     //    Feed
     public static String feed_limit = "25";

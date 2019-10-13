@@ -32,6 +32,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.sharon.trollmastermalayalam.helper.Constants;
 import com.sharon.trollmastermalayalam.helper.ShareHelper;
+import com.squareup.picasso.Picasso;
 
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
@@ -42,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
     static PrimaryDrawerItem item_icu, item_trollmalayalam, item_trollrepublic, item_mnt, item_dank, item_malayalampling, item_kidilantrolls,
             item_sct, item_trollcricket, item_trollfootball, item_trollmalayalamcinema, item_malayalamtrollmasters, item_sheruenthub,
             item_cinemamixer, item_cybertrollers, item_thengakola, item_trollmollywood, item_trollclasherskerala, item_outspoken,
-            item_btechtrolls, item_psctrolls, item_trollkerala, item_trollreligion, item_trollktu, item_pravasitrolls, item_onlinetrollmedia;
+            item_btechtrolls, item_psctrolls, item_trollkerala, item_trollreligion, item_trollktu, item_pravasitrolls, item_onlinetrollmedia,
+            item_trollsangh, item_trollcompany;
     Toolbar toolbar;
     AccountHeader headerResult;
     DividerDrawerItem item_divider;
@@ -124,6 +126,8 @@ public class MainActivity extends AppCompatActivity {
         preferences.putCheckPref("trollktu", true);
         preferences.putCheckPref("pravasitrolls", true);
         preferences.putCheckPref("onlinetm", true);
+        preferences.putCheckPref("trollsangh", true);
+        preferences.putCheckPref("trollcompany", true);
 
         preferences.setFirstTimeLaunch(false);
     }
@@ -211,6 +215,8 @@ public class MainActivity extends AppCompatActivity {
         item_trollktu = new PrimaryDrawerItem().withIdentifier(24).withName(getString(R.string.pagename_troll_ktu)).withIcon(R.drawable.icon_trollktu);
         item_pravasitrolls = new PrimaryDrawerItem().withIdentifier(25).withName(getString(R.string.pagename_pravasi_trolls)).withIcon(R.drawable.icon_pravasitrolls);
         item_malayalampling = new PrimaryDrawerItem().withIdentifier(26).withName(getString(R.string.pagename_malayalam_pling)).withIcon(R.drawable.icon_malayalampling);
+        item_trollsangh = new PrimaryDrawerItem().withIdentifier(27).withName(getString(R.string.pagename_trollsangh)).withIcon(R.drawable.icon_trollsangh);
+        item_trollcompany = new PrimaryDrawerItem().withIdentifier(28).withName(getString(R.string.pagename_trollcompany)).withIcon(R.drawable.icon_trollcompany);
 
         item_divider = new DividerDrawerItem();
 
@@ -299,6 +305,12 @@ public class MainActivity extends AppCompatActivity {
         }
         if (preferences.getCheckPref("mpling")) {
             result.addItem(item_malayalampling);
+        }
+        if (preferences.getCheckPref("trollsangh")) {
+            result.addItem(item_trollsangh);
+        }
+        if (preferences.getCheckPref("trollcompany")) {
+            result.addItem(item_trollcompany);
         }
         result.addItems(item_divider, item_addRemove, item_settings, item_about, item_shareTheApp);
     }
@@ -416,6 +428,14 @@ public class MainActivity extends AppCompatActivity {
                         bundle.putString("id", Constants.id_malayalampling);
                         bundle.putInt("pic", R.drawable.icon_malayalampling);
                         break;
+                    case 27:
+                        bundle.putString("id", Constants.id_trollsangh);
+                        bundle.putInt("pic", R.drawable.icon_trollsangh);
+                        break;
+                    case 28:
+                        bundle.putString("id", Constants.id_trollcompany);
+                        bundle.putInt("pic", R.drawable.icon_trollcompany);
+                        break;
 
                     case 100://settings
                         getFragmentManager().beginTransaction().replace(R.id.mainFrame, new Settings(), "settings").commit();
@@ -467,7 +487,6 @@ public class MainActivity extends AppCompatActivity {
         }
         imageView.setScaleType(ImageView.ScaleType.CENTER);
         alertdialog.setView(imageView)
-//                .setTitle("കൊച്ചു കള്ളൻ..!!")
                 .setPositiveButton("ഇവിടെ മാത്രം ഞെക്കുക ..", null)
                 .show();
     }
@@ -479,11 +498,11 @@ public class MainActivity extends AppCompatActivity {
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         int x = (int) (Math.random() * 3);
         if (x == 0) {
-            imageView.setImageResource(R.drawable.exit_troll_pic);
+            Picasso.with(this).load(R.drawable.exit_troll_pic).into(imageView);
         } else if (x == 1) {
-            imageView.setImageResource(R.drawable.exit_troll_pic2);
+            Picasso.with(this).load(R.drawable.exit_troll_pic2).into(imageView);
         } else if (x == 2) {
-            imageView.setImageResource(R.drawable.exit_troll_pic3);
+            Picasso.with(this).load(R.drawable.exit_troll_pic3).into(imageView);
         }
         alertdialog.setView(imageView)
                 .setPositiveButton("Exit", new DialogInterface.OnClickListener() {

@@ -68,6 +68,8 @@
     <string name="pagename_troll_kerala">Troll Kerala</string>
     <string name="pagename_malayalam_pling">Malayalam Pling</string>
     <string name="pagename_online_troll_media_otm">Online Troll Media - OTM</string>
+    <string name="pagename_trollsangh">Troll Sangh (സംഘി ഫലിതങ്ങൾ)</string>
+    <string name="pagename_trollcompany">Troll Company - TC</string>
 
     <!--Settings-->
     <string name="aboutus">About Us</string>
@@ -75,14 +77,15 @@
     <string name="preference_rateapp_dialogTitle">Rate Troll Master!</string>
     <string name="purchase_error">Error</string>
     <string name="purchase_already_owned">Error in purchase</string>
-    <string name="captioninclude">Include caption in shared message</string>
+    <string name="captioninclude">Remove caption in shared message</string>
     <string name="captionsummarychecked">Troll text is added to shared message</string>
     <string name="captionsummaryunchecked">Troll text is not added to shared message</string>
     <string name="preference_addRemove_dialogTitle">Add/Remove Pages</string>
 
     <string name="exit_toast">മുതലാളീ..</string>
-    <string name="settings_purchased_info">മുതലാളി എന്നെ ഒന്ന് വാങ്ങിച്ചതാ .. മറന്നോ :)</string>
+    <string name="settings_purchased_info">മുതലാളീ .. താങ്ക്യൂ ഉണ്ട് താങ്ക്യൂ. വീണ്ടും വീണ്ടും വാങ്ങാനുള്ള  മനസ്സ്.. </string>
     <string name="settings_purchase_cancel">മുതലാളീ ..</string>
     <string name="settings_purchase_success">നന്ദിയുണ്ട് മുതലാളീ .. നന്ദിയുണ്ട് .</string>
+    <string name="downloadhelper_success">ഇതല്ലാ ഇതിൻറെ അപ്പുറം ഡൌൺലോഡ് ചെയ്തവനാണീ ട്രോൾ മാസ്റ്റർ </string>
 
 </resources>
